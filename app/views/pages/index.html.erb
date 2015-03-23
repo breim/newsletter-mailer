@@ -1,1 +1,20 @@
 Olá aqui embaixo vai ficar o formulário
+___
+
+<br/>
+
+Dê F5 para ver os emails que estão cadastrados.
+
+<br/>
+<% @newsletters.each do |newsletter| %>
+<%= newsletter.email %><br/>
+<% end %>
+
+
+
+
+
+<%= form_tag 'newsletters/create', remote: true  do %>
+	<%= email_field_tag :email %>
+	<%= submit_tag 'Ok' %>
+<% end %> 
