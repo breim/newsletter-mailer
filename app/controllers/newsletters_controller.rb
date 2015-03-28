@@ -1,7 +1,7 @@
 class NewslettersController < ApplicationController
 
 	def create
-		@newsletter = Newsletter.new(email: params[:email])
+		@newsletter = Newsletter.new(newsletter_params)
 		respond_to do |format|
 			if @newsletter.save
 				format.js
@@ -12,7 +12,7 @@ class NewslettersController < ApplicationController
 	end
 
 	private
-	def company_params
+	def newsletter_params
 		params.require(:newsletter).permit(:email)
 	end
 
